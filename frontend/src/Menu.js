@@ -4,7 +4,7 @@ const Menu = () => {
   const [productos, setProductos] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3000/productos')
+    fetch('/productos')
       .then((response) => response.json())
       .then((data) => {
         console.log(data);  // Verifica que los productos lleguen correctamente
@@ -19,9 +19,9 @@ const Menu = () => {
       <ul>
         {productos.map((producto) => (
           <li key={producto._id}>
-            <strong>{producto.name}</strong><br />
-            Precio: ${producto.price}<br />
-            Descripción: {producto.description}
+            <strong>{producto.nombre}</strong><br />
+            Precio: ${producto.precio}<br />
+            Descripción: {producto.descripcion}
           </li>
         ))}
       </ul>
