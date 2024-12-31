@@ -112,6 +112,15 @@ Realizar un Pedido
 "Quiero pedir"
 "Me gustaria reservar"
 
+Metodos de pago
+"transferencia"
+"transferir"
+"pagar"
+"efectivo"
+
+Piezas
+Pregunta por piezas para saber que contienen
+
 Despedidas
 "adios"
 "hasta luego"
