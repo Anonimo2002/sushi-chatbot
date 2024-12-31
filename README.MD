@@ -92,7 +92,6 @@ Consultar el Menú:
 "¿Qué opciones tienen?"
 "Me mostraria la carta"
 "Que piezas tienen disponibles"
-"Que sushi tienen"
 "productos"
 "opciones"
 "platillos"
@@ -123,6 +122,13 @@ Despedidas
 "terminar"
 "cerrar"
 
+Consultar partes del sushi
+"sushi"
+"wasabi"
+"sashimi"
+"rolls"
+"temaki"
+"soja"
 
 Endpoints Disponibles
 Backend
