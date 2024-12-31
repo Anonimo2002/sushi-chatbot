@@ -252,3 +252,36 @@ body {
   cursor: pointer;
   width: 100%;
 }
+
+.chatbot-input .product-entry input,
+.chatbot-input .product-entry button {
+  padding: 12px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  background-color: #f0f0f5;
+  color: #333;
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Estilo para el resumen del pedido */
+.chatbot-input .order-summary {
+  margin-top: 20px;
+}
+
+.chatbot-input .order-summary h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.chatbot-input .order-summary ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.chatbot-input .order-summary ul li {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 5px;
+}
