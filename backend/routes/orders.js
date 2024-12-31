@@ -1,40 +1,44 @@
 const express = require('express');
+const Order = require('../models/Pedido'); // Asegúrate de que el modelo de pedido esté importado
 const router = express.Router();
-const Order = require('../models/Pedido'); // Asegúrate de que la ruta al modelo de Order es correcta
 
-// Ruta para crear un nuevo pedido
+// Ruta para crear un pedido
 router.post('/', async (req, res) => {
+    const { productName, quantity } = req.body; // Captura el nombre del cliente
+  
+    // Verificar que todos los campos estén presentes
+    if (!productName || !quantity ) {
+      return res.status(400).json({ message: 'Producto y cantidad son requeridos' });
+    }
+  
     try {
-      const { productName, quantity } = req.body; // Obtener los datos del pedido
-  
-      if (!productName || !quantity) {
-        return res.status(400).json({ message: 'Producto y cantidad son requeridos' });
-      }
-  
+      // Crear el nuevo pedido, asegurándose de que el nombre del cliente esté incluido
       const nuevoPedido = new Order({
-        producto: productName, // Cambiar al formato esperado por la base de datos
+        producto: productName,
         cantidad: quantity,
-        estado: 'pendiente',
+        estado: 'pendiente',  // Estado por defecto
+       
       });
   
-      const savedOrder = await nuevoPedido.save(); // Guardar el pedido en la base de datos
-      res.status(201).json(savedOrder); // Devolver el pedido guardado como respuesta
+      const savedOrder = await nuevoPedido.save();  // Guardar el pedido en la base de datos
+      res.status(201).json(savedOrder);  // Devolver el pedido guardado como respuesta
     } catch (error) {
       console.error('Error al crear el pedido:', error);
       res.status(500).json({ message: 'Hubo un error al procesar el pedido', error });
     }
   });
-  
 
-// Ruta para obtener todos los pedidos (opcional)
+// Ruta para obtener todos los pedidos
 router.get('/', async (req, res) => {
   try {
-    const orders = await Order.find(); // Obtener todos los pedidos
-    res.json(orders); // Devolver los pedidos
+    const orders = await Order.find();
+    res.json(orders);
   } catch (error) {
     console.error('Error al obtener los pedidos:', error);
     res.status(500).json({ message: 'Error al obtener los pedidos', error });
   }
 });
+
+
 
 module.exports = router;

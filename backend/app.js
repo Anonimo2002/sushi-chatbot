@@ -34,32 +34,8 @@ app.get('/productos', async (req, res) => {
 });
 
 // Ruta para recibir los pedidos del chatbot
-app.post('/order', async (req, res) => {
-  const { productName, quantity } = req.body;
-  try {
-    // Buscar el producto por nombre
-    const producto = await Producto.findOne({ name: productName });
+app.use('/orders', ordersRoutes);  // La ruta para los pedidos
 
-    if (!producto) {
-      return res.status(404).json({ message: 'Producto no encontrado' });
-    }
-
-    // Crear un nuevo pedido
-    const newOrder = new Pedido({
-      productName,
-      quantity,
-      totalPrice: producto.price * quantity,  // Calcula el precio total
-    });
-
-    // Guardar el pedido en la base de datos
-    await newOrder.save();
-
-    res.status(200).json({ message: 'Pedido confirmado', order: newOrder });
-  } catch (error) {
-    console.error('Error al realizar el pedido:', error);
-    res.status(500).json({ message: 'Error al procesar el pedido', error });
-  }
-});
 
 // Ruta de prueba del chatbot
 app.post('/chat', (req, res) => {
@@ -77,7 +53,7 @@ app.post('/chat', (req, res) => {
 });
 
 // Usar las rutas de pedidos
-app.use('/orders', ordersRoutes);  // La ruta para los pedidos
+
 
 // Iniciar servidor
 const PORT = process.env.PORT || 3001;
