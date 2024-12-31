@@ -55,12 +55,8 @@ Para mongoDB, debe utilizar mongoDB Compass. Una vez dentro deberá crear la bas
   }
 ]
 
-
-
-
-
-git clone https://github.com/Anonimo2002/sushi-chatbot.git
 cd sushi-chatbot
+
 Instalar Dependencias del Backend
 
 cd backend
@@ -68,45 +64,64 @@ npm install
 
 Configurar Variables de Entorno Crea un archivo .env en la carpeta backend con el siguiente contenido:
 
-
 MONGO_URI=mongodb://localhost:27017/sushi-chatbot
-PORT=3001
+
 Iniciar el Servidor Backend
 
 
 npm start
-Instalar Dependencias del Frontend
 
+Instalar Dependencias del Frontend
 
 cd ../frontend
 npm install
 Iniciar la Aplicación Frontend
 
-
 npm start
 Acceder a la Aplicación Abre tu navegador y visita http://localhost:3000 para interactuar con el chatbot.
 
-Ejemplos de Mensajes que Entiende el Bot
-Saludos
+Mensajes que Entiende el Bot
+Saludos:
 "Hola"
 "Buenos días"
 "Buenas tardes"
-Consultar el Menú
+
+Consultar el Menú:
 "¿Qué tienen en el menú?"
 "Muéstrame el menú de sushi"
 "¿Qué opciones tienen?"
+"Me mostraria la carta"
+"Que piezas tienen disponibles"
+"Que sushi tienen"
+"productos"
+"opciones"
+"platillos"
+
 Consultar Horarios
 "¿A qué hora abren?"
 "¿Cuál es su horario de atención?"
 "¿Están abiertos ahora?"
+"servicio"
+"tiempo"
+"hora"
+"dias"
+
 Realizar un Pedido
 "Quiero hacer un pedido"
 "¿Puedo ordenar sushi?"
 "Quiero comprar sushi"
+"Quiero pedir"
+"Me gustaria reservar"
+
 Despedidas
-"Adiós"
-"Hasta luego"
-"Nos vemos"
+"adios"
+"hasta luego"
+"os vemos"
+"chau"
+"ya termine"
+"finalizar"
+"terminar"
+"cerrar"
 
 
 Endpoints Disponibles
@@ -148,15 +163,6 @@ Frontend
 GET /
 Descripción: Página principal del chatbot.
 Respuesta: Interfaz de usuario del chatbot.
-Contribución
-Si deseas contribuir a este proyecto, por favor sigue los siguientes pasos:
 
-Haz un fork del repositorio.
-Crea una nueva rama (git checkout -b feature/nueva-funcionalidad).
-Realiza tus cambios y haz commit (git commit -am 'Añade nueva funcionalidad').
-Haz push a la rama (git push origin feature/nueva-funcionalidad).
-Abre un Pull Request.
-Licencia
-Este proyecto está bajo la licencia ISC. Para más detalles, consulta el archivo LICENSE.
 
 ¡Gracias por usar el Sushi Chatbot! Si tienes alguna pregunta o sugerencia, no dudes en contactarnos.
