@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const orderSchema = new mongoose.Schema({
+  
   producto: {
     type: String,
     required: true,
