@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Sushi Nigiri",
+    "price": 5.00,
+    "description": "Arroz de sushi con una rebanada de pescado fresco encima."
+  },
+  {
+    "name": "Sushi Maki",
+    "price": 8.00,
+    "description": "Arroz de sushi enrollado con alga nori y relleno de pescado o vegetales."
+  },
+  {
+    "name": "Sushi Sashimi",
+    "price": 10.00,
+    "description": "Rebanadas finas de pescado crudo, servidas sin arroz."
+  },
+  {
+    "name": "California Roll",
+    "price": 9.00,
+    "description": "Rollo de sushi con cangrejo, aguacate y pepino, envuelto en arroz."
+  },
+  {
+    "name": "Tempura Roll",
+    "price": 11.00,
+    "description": "Rollo de sushi con camarones tempura y vegetales, envuelto en arroz."
+  },
+  {
+    "name": "Spicy Tuna Roll",
+    "price": 12.00,
+    "description": "Rollo de sushi con atún picante y aguacate, envuelto en arroz."
+  },
+  {
+    "name": "Dragon Roll",
+    "price": 14.00,
+    "description": "Rollo de sushi con anguila y aguacate, decorado con salsa dulce."
+  },
+  {
+    "name": "Philadelphia Roll",
+    "price": 13.00,
+    "description": "Rollo de sushi con salmón ahumado y queso crema."
+  }
+]
