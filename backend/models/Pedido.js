@@ -11,7 +11,7 @@ const productSchema = new mongoose.Schema({
   },
   precio: {
     type: Number,
-    required: true,  // Asumimos que el precio es necesario
+    required: true,  
   },
 });
 
