@@ -1,5 +1,5 @@
 const express = require('express');
-const Order = require('../models/Pedido'); // Asegúrate de que el modelo de pedido esté importado
+const Order = require('../models/Pedido'); 
 const router = express.Router();
 
 // Ruta para crear un pedido
