@@ -6,8 +6,7 @@ Requisitos Previos
 Node.js (v16 o superior)
 npm (v8 o superior)
 MongoDB (instalado y corriendo localmente o acceso a una instancia remota)
-Pasos para Instalar y Ejecutar el Proyecto
-Clonar el Repositorio
+
 
 Para MongoDB, debe utilizar mongoDB Compass. Una vez dentro deberá crear la base de datos sushi-chatbot	y 2 colecciones una que se llame products y otra pedidos. Los pedidos los carga el cliente cuando ordena sushi, los datos de los productos ya están cargados. Son los siguientes:
 
