@@ -48,7 +48,7 @@ Saludos:
 "Buenas noches"
 "Saludos"
 
-Saludos mas nombre
+Saludos mas nombre: 
 mi nombre es|soy|me llamo|puedes llamarme|llámame|me dicen|me llaman
 
 
@@ -63,7 +63,7 @@ Consultar el Menú:
 "platillos"
 
 
-Consultar Horarios
+Consultar Horarios:
 
 "¿A qué hora abren?"
 "¿Cuál es su horario de atención?"
@@ -73,14 +73,14 @@ Consultar Horarios
 "hora"
 "dias"
 
-Realizar un Pedido
+Realizar un Pedido:
 "Quiero hacer un pedido"
 "¿Puedo ordenar sushi?"
 "Quiero comprar sushi"
 "Quiero pedir"
 "Me gustaria reservar"
 
-Despedidas
+Despedidas:
 "adios"
 "hasta luego"
 "os vemos"
@@ -91,7 +91,7 @@ Despedidas
 "cerrar"
 
 
-Metodos de pago
+Metodos de pago:
 "transferencia"
 "transferir"
 "pagar"
@@ -100,14 +100,14 @@ Metodos de pago
 Piezas
 Pregunta por piezas para saber que contienen
 
-Consultar partes del sushi
+Consultar partes del sushi:
 "wasabi"
 "sashimi"
 "rolls"
 "temaki"
 "soja"
 
-Endpoints Disponibles
+Endpoints Disponibles:
 Backend
 GET /productos
 
