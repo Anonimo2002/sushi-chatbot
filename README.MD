@@ -22,6 +22,7 @@ Instalar Dependencias del Backend en caso de que no esten instalas
 
 cd backend
 npm install 
+npm install dotenv cors express mongoose
 
 Iniciar el Servidor Backend
 npm run dev
