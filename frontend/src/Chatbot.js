@@ -73,7 +73,7 @@ const Chatbot = () => {
     
   
     // Detectar nombre del usuario
-    const nameRegex = /(?:mi nombre es|soy|me llamo|puedes llamarme|llámame|me dicen|me llaman)\s+(\w+)/i;
+    const nameRegex = /(?:mi nombre es|soy|me llamo|puedes llamarme|llamame|me dicen|me llaman)\s+(\w+)/i;
     const nameMatch = message.match(nameRegex); // No convertir aquí a minúsculas para conservar case sensitivity del nombre
     if (nameMatch) {
       const name = nameMatch[1];
