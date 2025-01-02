@@ -27,7 +27,7 @@ npm install dotenv cors express mongoose
 Iniciar el Servidor Backend
 npm run dev
 
-Instalar Dependencias del Frontend en caso de que no esten instalas
+Instalar Dependencias del Frontend 
 
 cd ../frontend
 npm install
@@ -151,3 +151,7 @@ Respuesta: Interfaz de usuario del chatbot.
 
 
 ¡Gracias por usar el Sushi Chatbot! Si tienes alguna pregunta o sugerencia, no dudes en contactarnos.
+
+
+
+
