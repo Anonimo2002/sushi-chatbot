@@ -9,9 +9,9 @@ MongoDB (instalado y corriendo localmente o acceso a una instancia remota)
 Pasos para Instalar y Ejecutar el Proyecto
 Clonar el Repositorio
 
-Para mongoDB, debe utilizar mongoDB Compass. Una vez dentro deberá crear la base de datos sushi-chatbot	y 2 colecciones una que se llame products y otra pedidos. Los pedidos los carga el cliente cuando ordena sushi, los datos de los productos ya están cargados. Son los siguientes:
+Para MongoDB, debe utilizar mongoDB Compass. Una vez dentro deberá crear la base de datos sushi-chatbot	y 2 colecciones una que se llame products y otra pedidos. Los pedidos los carga el cliente cuando ordena sushi, los datos de los productos ya están cargados. Son los siguientes:
 
-
+Los datos de ejemplo se encuentran en el archivo sushi.json y tambien a continuacion:
 [
   {
     "name": "Sushi Nigiri",
@@ -59,27 +59,28 @@ Para mongoDB, debe utilizar mongoDB Compass. Una vez dentro deberá crear la bas
 
 
 
-git clone https://github.com/Anonimo2002/sushi-chatbot.git
 cd sushi-chatbot
-Instalar Dependencias del Backend
+Instalar Dependencias del Backend en caso de que no esten instalas
 
 cd backend
-npm install
+npm install 
 
 Configurar Variables de Entorno Crea un archivo .env en la carpeta backend con el siguiente contenido:
 
 
 MONGO_URI=mongodb://localhost:27017/sushi-chatbot
-PORT=3001
+
 Iniciar el Servidor Backend
 
 
-npm start
-Instalar Dependencias del Frontend
+npm run dev
+Instalar Dependencias del Frontend en caso de que no esten instalas
+
 
 
 cd ../frontend
 npm install
+agregar esto en el package.json: "proxy": "http://localhost:3001"
 Iniciar la Aplicación Frontend
 
 
@@ -88,22 +89,31 @@ Acceder a la Aplicación Abre tu navegador y visita http://localhost:3000 para i
 
 Ejemplos de Mensajes que Entiende el Bot
 Saludos
+
 "Hola"
 "Buenos días"
 "Buenas tardes"
+
 Consultar el Menú
+
 "¿Qué tienen en el menú?"
 "Muéstrame el menú de sushi"
 "¿Qué opciones tienen?"
+
 Consultar Horarios
+
 "¿A qué hora abren?"
 "¿Cuál es su horario de atención?"
 "¿Están abiertos ahora?"
+
 Realizar un Pedido
+
 "Quiero hacer un pedido"
 "¿Puedo ordenar sushi?"
 "Quiero comprar sushi"
+
 Despedidas
+
 "Adiós"
 "Hasta luego"
 "Nos vemos"
@@ -148,15 +158,3 @@ Frontend
 GET /
 Descripción: Página principal del chatbot.
 Respuesta: Interfaz de usuario del chatbot.
-Contribución
-Si deseas contribuir a este proyecto, por favor sigue los siguientes pasos:
-
-Haz un fork del repositorio.
-Crea una nueva rama (git checkout -b feature/nueva-funcionalidad).
-Realiza tus cambios y haz commit (git commit -am 'Añade nueva funcionalidad').
-Haz push a la rama (git push origin feature/nueva-funcionalidad).
-Abre un Pull Request.
-Licencia
-Este proyecto está bajo la licencia ISC. Para más detalles, consulta el archivo LICENSE.
-
-¡Gracias por usar el Sushi Chatbot! Si tienes alguna pregunta o sugerencia, no dudes en contactarnos.

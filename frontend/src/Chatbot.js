@@ -6,14 +6,12 @@ const Chatbot = () => {
   const [userName, setUserName] = useState('');
   const [ordering, setOrdering] = useState(false);
   const [orderDetails, setOrderDetails] = useState({ productName: '', quantity: 1 });
-  const [productos, setProductos] = useState([]); 
-  const [showConfirmDialog, setShowConfirmDialog] = useState(false); 
-  // eslint-disable-next-line no-unused-vars
-  const [currentOrder, setCurrentOrder] = useState(null); 
-  const [orderList, setOrderList] = useState([]); // Lista de pedidos
+  const [productos, setProductos] = useState([]);
+  const [showConfirmDialog, setShowConfirmDialog] = useState(false);
+  const [orderList, setOrderList] = useState([]);
 
   useEffect(() => {
-    setMessages([ 
+    setMessages([
       { text: '¡Hola! Soy el bot de Sushi. ¿Cómo puedo ayudarte hoy?', sender: 'bot' },
     ]);
   }, []);
@@ -23,7 +21,6 @@ const Chatbot = () => {
       const response = await fetch('/productos');
       const data = await response.json();
       setProductos(data);
-      
       setMessages((prevMessages) => [
         ...prevMessages,
         { text: 'Menú de Sushi:', sender: 'bot' },
@@ -63,24 +60,29 @@ const Chatbot = () => {
 
   const processBotResponse = (message) => {
     const lowerMessage = message.toLowerCase();
-
-    const farewellKeywords = ['adios', 'chau', 'hasta luego', 'ya termine', 'finalizar', 'terminar'];
+  
+    // Palabras clave de despedida
+    const farewellKeywords = ['adios', 'chau', 'hasta luego', 'ya termine', 'finalizar', 'terminar', 'cerrar', 'nos vemos'];
     if (farewellKeywords.some((word) => lowerMessage.includes(word))) {
-        setMessages([  // Limpiar todos los mensajes cuando se detecta una despedida
-          { text: '¡Hasta luego! ¡Gracias por visitar! 😊', sender: 'bot' },
-        ]);
-        return;
-      }
-    if (lowerMessage.includes('mi nombre es')) {
-      const name = message.split('mi nombre es')[1].trim();
-      setUserName(name); 
+      setMessages([
+        { text: '¡Hasta luego! ¡Gracias por visitar! 😊', sender: 'bot' },
+      ]);
+      return;
+    }
+  
+    // Detectar nombre del usuario
+    const nameRegex = /(?:mi nombre es|soy|me llamo|puedes llamarme|llámame|me dicen|me llaman)\s+(\w+)/i;
+    const nameMatch = message.match(nameRegex); // No convertir aquí a minúsculas para conservar case sensitivity del nombre
+    if (nameMatch) {
+      const name = nameMatch[1];
+      setUserName(name);
       setMessages((prevMessages) => [
         ...prevMessages,
         { text: `¡Encantado de conocerte, ${name}! ¿Cómo puedo ayudarte hoy?`, sender: 'bot' },
       ]);
       return;
     }
-
+  
     if (userName) {
       if (lowerMessage.includes('hola') || lowerMessage.includes('buenos dias')) {
         setMessages((prevMessages) => [
@@ -90,15 +92,27 @@ const Chatbot = () => {
         return;
       }
     }
-
-    
+  
+    // FAQs y palabras clave
+    const faqKeywords = [
+      { keyword: 'sashimi', response: 'El sashimi es pescado crudo, cortado en finas rebanadas, que se sirve sin arroz.' },
+      { keyword: 'rolls', response: 'Los rolls son un tipo de sushi enrollado con alga nori y relleno de ingredientes como pescado, vegetales o mariscos.' },
+      { keyword: 'temaki', response: 'El temaki es un sushi en forma de cono, con alga nori, arroz y relleno, que se come con las manos.' },
+      { keyword: 'wasabi', response: 'El wasabi es una pasta picante hecha de una raíz japonesa, que se sirve comúnmente con sushi.' },
+      { keyword: 'soja', response: 'La salsa de soja se usa para mojar el sushi, agregando sabor umami. Se recomienda no sumergir el pescado en la salsa de soja, solo el arroz.' }
+    ];
+  
     const horarioKeywords = ['abren', 'abiertos', 'servicio', 'horario', 'horarios', 'tiempo', 'hora', 'dias'];
-    const menuKeywords = ['menu', 'carta', 'piezas', 'platillos', 'sushi', 'productos', 'opciones'];
+    const menuKeywords = ['menu', 'carta', 'piezas', 'platillos', 'productos', 'opciones'];
     const orderKeywords = ['pedido', 'ordenar', 'pedir', 'comprar', 'reservar', 'solicitar'];
-
+    const paymentKeywords = ['pagar', 'transferencia', 'efectivo', 'transferir'];
+  
     let botMessage = 'Lo siento, no entendí eso.';
-
-    if (horarioKeywords.some((word) => lowerMessage.includes(word))) {
+  
+    if (faqKeywords.some((faq) => lowerMessage.includes(faq.keyword))) {
+      const faqResponse = faqKeywords.find(faq => lowerMessage.includes(faq.keyword));
+      botMessage = faqResponse ? faqResponse.response : botMessage;
+    } else if (horarioKeywords.some((word) => lowerMessage.includes(word))) {
       botMessage = 'Estamos abiertos todos los días de 14:00 a 00:00.';
     } else if (menuKeywords.some((word) => lowerMessage.includes(word))) {
       botMessage = '¡Claro! Aquí está nuestro menú. ¿Qué te gustaría pedir?';
@@ -106,15 +120,21 @@ const Chatbot = () => {
     } else if (orderKeywords.some((word) => lowerMessage.includes(word))) {
       botMessage = '¡Perfecto! ¿Qué producto te gustaría ordenar?';
       setOrdering(true);
+    } else if (paymentKeywords.some((word) => lowerMessage.includes(word))) {
+      botMessage = 'Puedes pagar mediante transferencia bancaria o en efectivo al recibir tu pedido. ¿Cómo prefieres pagar?';
     } else if (lowerMessage.includes('ayuda')) {
-      botMessage = '¿Cómo puedo ayudarte? Puedes preguntar sobre nuestro menú, horarios, o hacer un pedido.';
+      botMessage = '¿Cómo puedo ayudarte? Puedes preguntar sobre nuestro menú, horarios, hacer un pedido y métodos de pago.';
+    } else if (productos.some((producto) => lowerMessage.includes(producto.name.toLowerCase()))) {
+      const product = productos.find(p => lowerMessage.includes(p.name.toLowerCase()));
+      botMessage = `${product.name}: ${product.description}`;
     }
-
+  
     setMessages((prevMessages) => [
       ...prevMessages,
       { text: botMessage, sender: 'bot' },
     ]);
   };
+  
 
   const handleOrderChange = (e) => {
     const { name, value } = e.target;
@@ -143,13 +163,13 @@ const Chatbot = () => {
       total,
     };
 
-    setOrderList((prevOrderList) => [...prevOrderList, newOrder]); // Agregar al pedido
+    setOrderList((prevOrderList) => [...prevOrderList, newOrder]);
     setMessages((prevMessages) => [
       ...prevMessages,
       { text: `Producto agregado: ${quantity} ${productName} - Total: $${total.toFixed(2)}`, sender: 'bot' },
     ]);
 
-    setOrderDetails({ productName: '', quantity: 1 }); // Limpiar campos
+    setOrderDetails({ productName: '', quantity: 1 });
   };
 
   const handleConfirmDialog = () => {
@@ -159,27 +179,26 @@ const Chatbot = () => {
   const handleOrderConfirmation = async (confirmed) => {
     if (confirmed) {
       try {
-        // Ajustamos la estructura de los datos para que coincidan con el backend
         const orderData = {
           productos: orderList.map(item => ({
-            producto: item.productName,  // Nombre del producto
-            cantidad: Number(item.quantity),  // Convertir la cantidad a número
-            precio: item.total / item.quantity,  // Si necesitas incluir el precio por unidad
+            producto: item.productName,
+            cantidad: Number(item.quantity),
+            precio: item.total / item.quantity,
           })),
         };
-  
+
         const response = await fetch('/orders', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify(orderData),  // Enviar la estructura correcta
+          body: JSON.stringify(orderData),
         });
-  
+
         if (!response.ok) {
           throw new Error('No se pudo realizar el pedido');
         }
-  
+
         setMessages((prevMessages) => [
           ...prevMessages,
           { text: `Tu pedido ha sido confirmado. Total: $${orderList.reduce((acc, item) => acc + item.total, 0).toFixed(2)}`, sender: 'bot' },
@@ -196,13 +215,11 @@ const Chatbot = () => {
         { text: 'Pedido cancelado. ¿Te gustaría hacer otro pedido?', sender: 'bot' },
       ]);
     }
-  
-    // Limpiar estados
+
     setShowConfirmDialog(false);
     setOrdering(false);
-    setOrderList([]); // Limpiar lista de pedidos
+    setOrderList([]);
   };
-  
 
   return (
     <div className="chatbot-container">
@@ -217,7 +234,6 @@ const Chatbot = () => {
         ))}
       </div>
 
-      {/* Ventana de confirmación */}
       {showConfirmDialog && (
         <div className="confirm-dialog">
           <p>¿Estás seguro de que quieres confirmar tu pedido?</p>
