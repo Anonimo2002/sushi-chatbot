@@ -55,66 +55,45 @@ Los datos de ejemplo se encuentran en el archivo sushi.json y tambien a continua
   }
 ]
 
-<<<<<<< HEAD
 
+Configurar Variables de Entorno Crea un archivo .env en la carpeta raiz con el siguiente contenido:
 
+MONGO_URI=mongodb://localhost:27017/sushi-chatbot
 
-
+Backend
 cd sushi-chatbot
 Instalar Dependencias del Backend en caso de que no esten instalas
-=======
-cd sushi-chatbot
-
-Instalar Dependencias del Backend
->>>>>>> a389445a7907bbc69c11fd5a9113508a129b81dc
 
 cd backend
 npm install 
 
-Configurar Variables de Entorno Crea un archivo .env en la carpeta backend con el siguiente contenido:
-
-MONGO_URI=mongodb://localhost:27017/sushi-chatbot
-
 Iniciar el Servidor Backend
-
-
-<<<<<<< HEAD
 npm run dev
+
 Instalar Dependencias del Frontend en caso de que no esten instalas
-
-=======
-npm start
->>>>>>> a389445a7907bbc69c11fd5a9113508a129b81dc
-
-Instalar Dependencias del Frontend
 
 cd ../frontend
 npm install
-agregar esto en el package.json: "proxy": "http://localhost:3001"
-Iniciar la Aplicación Frontend
+agregar esto en el package.json: "proxy": "http://localhost:3001" en caso que no este
 
+Iniciar la Aplicación Frontend
 npm start
+
 Acceder a la Aplicación Abre tu navegador y visita http://localhost:3000 para interactuar con el chatbot.
 
-<<<<<<< HEAD
 Ejemplos de Mensajes que Entiende el Bot
 Saludos
 
-=======
 Mensajes que Entiende el Bot
 Saludos:
->>>>>>> a389445a7907bbc69c11fd5a9113508a129b81dc
 "Hola"
 "Buenos días"
 "Buenas tardes"
 
-<<<<<<< HEAD
-Consultar el Menú
+Saludos mas nombre
+mi nombre es|soy|me llamo|puedes llamarme|llámame|me dicen|me llaman
 
-"¿Qué tienen en el menú?"
-"Muéstrame el menú de sushi"
-"¿Qué opciones tienen?"
-=======
+
 Consultar el Menú:
 "¿Qué tienen en el menú?"
 "Muéstrame el menú de sushi"
@@ -124,46 +103,24 @@ Consultar el Menú:
 "productos"
 "opciones"
 "platillos"
->>>>>>> a389445a7907bbc69c11fd5a9113508a129b81dc
+
 
 Consultar Horarios
 
 "¿A qué hora abren?"
 "¿Cuál es su horario de atención?"
 "¿Están abiertos ahora?"
-<<<<<<< HEAD
-=======
 "servicio"
 "tiempo"
 "hora"
 "dias"
->>>>>>> a389445a7907bbc69c11fd5a9113508a129b81dc
 
 Realizar un Pedido
-
 "Quiero hacer un pedido"
 "¿Puedo ordenar sushi?"
 "Quiero comprar sushi"
-<<<<<<< HEAD
-
-Despedidas
-
-"Adiós"
-"Hasta luego"
-"Nos vemos"
-=======
 "Quiero pedir"
 "Me gustaria reservar"
->>>>>>> a389445a7907bbc69c11fd5a9113508a129b81dc
-
-Metodos de pago
-"transferencia"
-"transferir"
-"pagar"
-"efectivo"
-
-Piezas
-Pregunta por piezas para saber que contienen
 
 Despedidas
 "adios"
@@ -175,8 +132,17 @@ Despedidas
 "terminar"
 "cerrar"
 
+
+Metodos de pago
+"transferencia"
+"transferir"
+"pagar"
+"efectivo"
+
+Piezas
+Pregunta por piezas para saber que contienen
+
 Consultar partes del sushi
-"sushi"
 "wasabi"
 "sashimi"
 "rolls"
@@ -222,9 +188,8 @@ Frontend
 GET /
 Descripción: Página principal del chatbot.
 Respuesta: Interfaz de usuario del chatbot.
-<<<<<<< HEAD
-=======
+
 
 
 ¡Gracias por usar el Sushi Chatbot! Si tienes alguna pregunta o sugerencia, no dudes en contactarnos.
->>>>>>> a389445a7907bbc69c11fd5a9113508a129b81dc
+
