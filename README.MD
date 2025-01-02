@@ -10,50 +10,7 @@ MongoDB (instalado y corriendo localmente o acceso a una instancia remota)
 
 Para MongoDB, debe utilizar mongoDB Compass. Una vez dentro deberá crear la base de datos sushi-chatbot	y 2 colecciones una que se llame products y otra pedidos. Los pedidos los carga el cliente cuando ordena sushi, los datos de los productos ya están cargados. Son los siguientes:
 
-Los datos de ejemplo se encuentran en el archivo sushi.json y tambien a continuacion:
-[
-  {
-    "name": "Sushi Nigiri",
-    "price": 5.00,
-    "description": "Arroz de sushi con una rebanada de pescado fresco encima."
-  },
-  {
-    "name": "Sushi Maki",
-    "price": 8.00,
-    "description": "Arroz de sushi enrollado con alga nori y relleno de pescado o vegetales."
-  },
-  {
-    "name": "Sushi Sashimi",
-    "price": 10.00,
-    "description": "Rebanadas finas de pescado crudo, servidas sin arroz."
-  },
-  {
-    "name": "California Roll",
-    "price": 9.00,
-    "description": "Rollo de sushi con cangrejo, aguacate y pepino, envuelto en arroz."
-  },
-  {
-    "name": "Tempura Roll",
-    "price": 11.00,
-    "description": "Rollo de sushi con camarones tempura y vegetales, envuelto en arroz."
-  },
-  {
-    "name": "Spicy Tuna Roll",
-    "price": 12.00,
-    "description": "Rollo de sushi con atún picante y aguacate, envuelto en arroz."
-  },
-  {
-    "name": "Dragon Roll",
-    "price": 14.00,
-    "description": "Rollo de sushi con anguila y aguacate, decorado con salsa dulce."
-  },
-  {
-    "name": "Philadelphia Roll",
-    "price": 13.00,
-    "description": "Rollo de sushi con salmón ahumado y queso crema."
-  }
-]
-
+Los datos de ejemplo se encuentran en el archivo sushi.json.
 
 Configurar Variables de Entorno Crea un archivo .env en la carpeta raiz con el siguiente contenido:
 
@@ -88,6 +45,8 @@ Saludos:
 "Hola"
 "Buenos días"
 "Buenas tardes"
+"Buenas noches"
+"Saludos"
 
 Saludos mas nombre
 mi nombre es|soy|me llamo|puedes llamarme|llámame|me dicen|me llaman
