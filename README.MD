@@ -50,7 +50,7 @@ Saludos:
 "Saludos"
 
 Saludos mas nombre: 
-mi nombre es|soy|me llamo|puedes llamarme|llámame|me dicen|me llaman
+mi nombre es|soy|me llamo|puedes llamarme|llamame|me dicen|me llaman
 
 
 Consultar el Menú:
