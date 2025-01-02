@@ -60,8 +60,9 @@ const Chatbot = () => {
 
   const processBotResponse = (message) => {
     const lowerMessage = message.toLowerCase();
-  
-    // Palabras clave de despedida
+    
+
+   
     const farewellKeywords = ['adios', 'chau', 'hasta luego', 'ya termine', 'finalizar', 'terminar', 'cerrar', 'nos vemos'];
     if (farewellKeywords.some((word) => lowerMessage.includes(word))) {
       setMessages([
@@ -69,6 +70,7 @@ const Chatbot = () => {
       ]);
       return;
     }
+    
   
     // Detectar nombre del usuario
     const nameRegex = /(?:mi nombre es|soy|me llamo|puedes llamarme|llámame|me dicen|me llaman)\s+(\w+)/i;
@@ -92,7 +94,15 @@ const Chatbot = () => {
         return;
       }
     }
-  
+
+    const greetingKeywords = ['hola', 'buenos dias', 'buenas tardes', 'buenas noches', 'saludos'];
+    if (greetingKeywords.some((word) => lowerMessage.includes(word))) {
+      setMessages((prevMessages) => [
+        ...prevMessages,
+        { text: `¡Hola! ¿En qué puedo ayudarte hoy?`, sender: 'bot' },
+      ]);
+      return;
+    }
     // FAQs y palabras clave
     const faqKeywords = [
       { keyword: 'sashimi', response: 'El sashimi es pescado crudo, cortado en finas rebanadas, que se sirve sin arroz.' },

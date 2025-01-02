@@ -6,115 +6,53 @@ Requisitos Previos
 Node.js (v16 o superior)
 npm (v8 o superior)
 MongoDB (instalado y corriendo localmente o acceso a una instancia remota)
-Pasos para Instalar y Ejecutar el Proyecto
-Clonar el Repositorio
+
 
 Para MongoDB, debe utilizar mongoDB Compass. Una vez dentro deberá crear la base de datos sushi-chatbot	y 2 colecciones una que se llame products y otra pedidos. Los pedidos los carga el cliente cuando ordena sushi, los datos de los productos ya están cargados. Son los siguientes:
 
-Los datos de ejemplo se encuentran en el archivo sushi.json y tambien a continuacion:
-[
-  {
-    "name": "Sushi Nigiri",
-    "price": 5.00,
-    "description": "Arroz de sushi con una rebanada de pescado fresco encima."
-  },
-  {
-    "name": "Sushi Maki",
-    "price": 8.00,
-    "description": "Arroz de sushi enrollado con alga nori y relleno de pescado o vegetales."
-  },
-  {
-    "name": "Sushi Sashimi",
-    "price": 10.00,
-    "description": "Rebanadas finas de pescado crudo, servidas sin arroz."
-  },
-  {
-    "name": "California Roll",
-    "price": 9.00,
-    "description": "Rollo de sushi con cangrejo, aguacate y pepino, envuelto en arroz."
-  },
-  {
-    "name": "Tempura Roll",
-    "price": 11.00,
-    "description": "Rollo de sushi con camarones tempura y vegetales, envuelto en arroz."
-  },
-  {
-    "name": "Spicy Tuna Roll",
-    "price": 12.00,
-    "description": "Rollo de sushi con atún picante y aguacate, envuelto en arroz."
-  },
-  {
-    "name": "Dragon Roll",
-    "price": 14.00,
-    "description": "Rollo de sushi con anguila y aguacate, decorado con salsa dulce."
-  },
-  {
-    "name": "Philadelphia Roll",
-    "price": 13.00,
-    "description": "Rollo de sushi con salmón ahumado y queso crema."
-  }
-]
+Los datos de ejemplo se encuentran en el archivo sushi.json.
 
-<<<<<<< HEAD
-
-
-
-
-cd sushi-chatbot
-Instalar Dependencias del Backend en caso de que no esten instalas
-=======
-cd sushi-chatbot
-
-Instalar Dependencias del Backend
->>>>>>> a389445a7907bbc69c11fd5a9113508a129b81dc
-
-cd backend
-npm install 
-
-Configurar Variables de Entorno Crea un archivo .env en la carpeta backend con el siguiente contenido:
+Configurar Variables de Entorno Crea un archivo .env en la carpeta raiz con el siguiente contenido:
 
 MONGO_URI=mongodb://localhost:27017/sushi-chatbot
 
+Backend
+cd sushi-chatbot
+Instalar Dependencias del Backend en caso de que no esten instalas
+
+cd backend
+npm install 
+npm install dotenv cors express mongoose
+
 Iniciar el Servidor Backend
-
-
-<<<<<<< HEAD
 npm run dev
+
 Instalar Dependencias del Frontend en caso de que no esten instalas
-
-=======
-npm start
->>>>>>> a389445a7907bbc69c11fd5a9113508a129b81dc
-
-Instalar Dependencias del Frontend
 
 cd ../frontend
 npm install
-agregar esto en el package.json: "proxy": "http://localhost:3001"
-Iniciar la Aplicación Frontend
+agregar esto en el package.json: "proxy": "http://localhost:3001" en caso que no este
 
+Iniciar la Aplicación Frontend
 npm start
+
 Acceder a la Aplicación Abre tu navegador y visita http://localhost:3000 para interactuar con el chatbot.
 
-<<<<<<< HEAD
 Ejemplos de Mensajes que Entiende el Bot
 Saludos
 
-=======
 Mensajes que Entiende el Bot
 Saludos:
->>>>>>> a389445a7907bbc69c11fd5a9113508a129b81dc
 "Hola"
 "Buenos días"
 "Buenas tardes"
+"Buenas noches"
+"Saludos"
 
-<<<<<<< HEAD
-Consultar el Menú
+Saludos mas nombre: 
+mi nombre es|soy|me llamo|puedes llamarme|llámame|me dicen|me llaman
 
-"¿Qué tienen en el menú?"
-"Muéstrame el menú de sushi"
-"¿Qué opciones tienen?"
-=======
+
 Consultar el Menú:
 "¿Qué tienen en el menú?"
 "Muéstrame el menú de sushi"
@@ -124,48 +62,26 @@ Consultar el Menú:
 "productos"
 "opciones"
 "platillos"
->>>>>>> a389445a7907bbc69c11fd5a9113508a129b81dc
 
-Consultar Horarios
+
+Consultar Horarios:
 
 "¿A qué hora abren?"
 "¿Cuál es su horario de atención?"
 "¿Están abiertos ahora?"
-<<<<<<< HEAD
-=======
 "servicio"
 "tiempo"
 "hora"
 "dias"
->>>>>>> a389445a7907bbc69c11fd5a9113508a129b81dc
 
-Realizar un Pedido
-
+Realizar un Pedido:
 "Quiero hacer un pedido"
 "¿Puedo ordenar sushi?"
 "Quiero comprar sushi"
-<<<<<<< HEAD
-
-Despedidas
-
-"Adiós"
-"Hasta luego"
-"Nos vemos"
-=======
 "Quiero pedir"
 "Me gustaria reservar"
->>>>>>> a389445a7907bbc69c11fd5a9113508a129b81dc
 
-Metodos de pago
-"transferencia"
-"transferir"
-"pagar"
-"efectivo"
-
-Piezas
-Pregunta por piezas para saber que contienen
-
-Despedidas
+Despedidas:
 "adios"
 "hasta luego"
 "os vemos"
@@ -175,15 +91,24 @@ Despedidas
 "terminar"
 "cerrar"
 
-Consultar partes del sushi
-"sushi"
+
+Metodos de pago:
+"transferencia"
+"transferir"
+"pagar"
+"efectivo"
+
+Piezas
+Pregunta por piezas para saber que contienen
+
+Consultar partes del sushi:
 "wasabi"
 "sashimi"
 "rolls"
 "temaki"
 "soja"
 
-Endpoints Disponibles
+Endpoints Disponibles:
 Backend
 GET /productos
 
@@ -222,9 +147,7 @@ Frontend
 GET /
 Descripción: Página principal del chatbot.
 Respuesta: Interfaz de usuario del chatbot.
-<<<<<<< HEAD
-=======
+
 
 
 ¡Gracias por usar el Sushi Chatbot! Si tienes alguna pregunta o sugerencia, no dudes en contactarnos.
->>>>>>> a389445a7907bbc69c11fd5a9113508a129b81dc

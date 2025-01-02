@@ -1,1 +1,45 @@
-/node_modules
+# Ignorar node_modules (dependencias de Node.js)
+node_modules/
+
+# Ignorar archivos de entorno
+.env
+.env.*
+
+# Ignorar archivos de configuración de IDE
+.idea/
+.vscode/
+
+# Ignorar archivos de compilación y logs
+build/
+dist/
+*.log
+
+# Ignorar archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Ignorar archivos de caché de npm
+.npm
+
+# Ignorar archivos de caché de Babel
+.babelcache
+
+# Ignorar archivos de caché de ESLint
+.eslintcache
+
+# Ignorar archivos de caché de Jest
+.jestcache
+
+# Ignorar archivos de caché de Webpack
+.webpackcache
+
+# Ignorar archivos de caché de Parcel
+.parcelcache
+
+# Ignorar archivos de caché de Yarn
+.yarn/
+.yarnrc
+
+# Ignorar archivos de caché de pnpm
+.pnpm/
+.pnpm-store/
